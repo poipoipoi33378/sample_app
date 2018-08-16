@@ -27,5 +27,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!#POSTリクエストの結果を見て、指定されたリダイレクト先に移動する
     assert_template 'users/show'
     assert_not flash.empty?
+    assert is_logged_in?
   end
 end
