@@ -10,7 +10,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "foo",
                                          password_confirmation: "bar" } }
     end
-    assert_select 'form[action="/signup"]'
+    #assert_select 'form[action="/signup"]'
     assert_select 'div#error_explanation'
     assert_select 'div.alert-danger',"The form contains 4 errors."
     assert_template 'users/new'
