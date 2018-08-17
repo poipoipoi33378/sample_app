@@ -68,5 +68,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       delete user_path(@user)
     end
     assert_redirected_to root_url
-    end
+  end
+
+  test "should redirect root when show a non-login" do
+    log_in_as(@user)
+
+    @other_user.update_attributes(activated: false,activated_at: nil)
+    get user_path(@other_user)
+    assert_redirected_to root_url
+  end
+
 end
